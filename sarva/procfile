@@ -1,1 +1,1 @@
-web:gunicorn sarva.wsgi 
+web: gunicorn sarva.wsgi 
