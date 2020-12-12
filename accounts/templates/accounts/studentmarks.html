@@ -1,0 +1,72 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+{%  include 'accounts/status.html' %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>CUSTOMERS:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Student</a>
+			<table class="table table-sm">
+				<tr>
+
+					
+					<th>STUDENT NAME</th>
+					<th>ROLLNO</th>
+				</tr>
+				{% for i in students %}
+				<tr>
+				
+					<td>{{i.name}} </td>
+					
+					<td>{{i.regid}}</td>
+					
+		      	</tr>
+				  {% endfor %}
+				
+			
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>LAST 5 ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">ADD MARKS</a>
+			<table class="table table-sm">
+
+				<tr>
+					<th>STUDENT NAME </th>
+					<th>PHYSICS</th>
+					<th>MATHS</th>
+					<th>SCIENCE</th>
+					<th>SOCIAL</th>
+					<th>ENGLISH</th>
+					<th>TOTAL</th>
+				</tr>
+						{% for i in marks %}
+						<tr>
+						<td>{{i.regid.name}}</td>
+						<td>{{i.physics}}</td>
+						<td>{{i.maths}}</td>
+						<td>{{i.science}}</td>
+						<td>{{i.social}}</td>
+						<td>{{i.english}}</td>
+						<td>{{i.total}}</td>
+					   </tr>
+						{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+

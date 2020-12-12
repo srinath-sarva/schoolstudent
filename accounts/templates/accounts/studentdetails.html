@@ -1,0 +1,79 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+	<br>
+	<label for="student">Choose a Student:</label>
+	<form method="POST" action="{% url 'det' %}">
+		{% csrf_token %}
+	<select id="student" name="student" size="1">
+		<option selected>select</option>
+		{% for i in students %}
+	  <option>{{i.name}}</option>
+	    {% endfor %}
+	</select>
+	<input type="submit" value="select">
+ 	</form>
+	<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Customer:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Student</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Student</a>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{i.regid.email}}</p>
+			<p>regid: {{i.regid.regid}}</p>
+			<p>gender:{{i.regid.gender}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Marks</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{i.total}}</h1>
+		</div>
+	</div>
+</div>
+
+
+<br>
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>NAME</th>
+					<th>PHYSICS</th>
+					<th>MATHS</th>
+					<th>SCIENCE</th>
+					<th>SOCIAL</th>
+					<th>ENGLISH</th>
+				</tr>
+				<tr>
+					<td>{{i.regid.name}}</td>
+					<td>{{i.physics}}</td>
+					<td>{{i.maths}}</td>
+					<td>{{i.science}}</td>
+					<td>{{i.social}}</td>
+					<td>{{i.english}}</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
