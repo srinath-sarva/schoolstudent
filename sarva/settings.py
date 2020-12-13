@@ -73,15 +73,9 @@ WSGI_APPLICATION = 'sarva.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-import dj_database_url
-db_from_env=dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+
+DATABASE_URL ='postgres://frhhlydrdbngpx:8e247f9e1618d6a325fedeb82cc788e85a30103b5ae4f16f6bece95ccee2ff36@ec2-3-220-98-137.compute-1.amazonaws.com:5432/dcfkf9075d5ldc'
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 
 # Password validation
